@@ -7,15 +7,24 @@
 //
 
 #import "BootCamp_iOSAppDelegate.h"
+#import "TwitterViewController.h"
 
 @implementation BootCamp_iOSAppDelegate
 
 
 @synthesize window=_window;
+@synthesize twitterViewController = _twitterViewController;
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
-{
-    // Override point for customization after application launch.
+
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    TwitterViewController *viewController = [[TwitterViewController alloc]
+                                         initWithNibName:@"TwitterViewController" bundle:nil];
+    self.twitterViewController = viewController;
+    [viewController release];
+    
+    self.window.rootViewController = self.twitterViewController;
+
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -59,8 +68,8 @@
      */
 }
 
-- (void)dealloc
-{
+- (void)dealloc {
+    [_twitterViewController release];
     [_window release];
     [super dealloc];
 }

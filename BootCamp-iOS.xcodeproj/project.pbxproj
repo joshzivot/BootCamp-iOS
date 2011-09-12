@@ -14,6 +14,22 @@
 		B50C486C141EA02F004269C5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C486B141EA02F004269C5 /* main.m */; };
 		B50C486F141EA02F004269C5 /* BootCamp_iOSAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C486E141EA02F004269C5 /* BootCamp_iOSAppDelegate.m */; };
 		B50C4872141EA02F004269C5 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50C4870141EA02F004269C5 /* MainWindow.xib */; };
+		B50C487B141EA474004269C5 /* TwitterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C4879141EA474004269C5 /* TwitterViewController.m */; };
+		B50C487C141EA474004269C5 /* TwitterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50C487A141EA474004269C5 /* TwitterViewController.xib */; };
+		B50C4880141EACCE004269C5 /* TweetDisplayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C487E141EACCE004269C5 /* TweetDisplayViewController.m */; };
+		B50C4881141EACCE004269C5 /* TweetDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50C487F141EACCE004269C5 /* TweetDisplayViewController.xib */; };
+		B50C48A5141EB556004269C5 /* NSObject+SBJson.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C488D141EB556004269C5 /* NSObject+SBJson.m */; };
+		B50C48A6141EB556004269C5 /* SBJsonParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C4890141EB556004269C5 /* SBJsonParser.m */; };
+		B50C48A7141EB556004269C5 /* SBJsonStreamParser.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C4892141EB556004269C5 /* SBJsonStreamParser.m */; };
+		B50C48A8141EB556004269C5 /* SBJsonStreamParserAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C4894141EB556004269C5 /* SBJsonStreamParserAccumulator.m */; };
+		B50C48A9141EB556004269C5 /* SBJsonStreamParserAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C4896141EB556004269C5 /* SBJsonStreamParserAdapter.m */; };
+		B50C48AA141EB556004269C5 /* SBJsonStreamParserState.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C4898141EB556004269C5 /* SBJsonStreamParserState.m */; };
+		B50C48AB141EB556004269C5 /* SBJsonStreamWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C489A141EB556004269C5 /* SBJsonStreamWriter.m */; };
+		B50C48AC141EB556004269C5 /* SBJsonStreamWriterAccumulator.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C489C141EB556004269C5 /* SBJsonStreamWriterAccumulator.m */; };
+		B50C48AD141EB556004269C5 /* SBJsonStreamWriterState.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C489E141EB556004269C5 /* SBJsonStreamWriterState.m */; };
+		B50C48AE141EB556004269C5 /* SBJsonTokeniser.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C48A0141EB556004269C5 /* SBJsonTokeniser.m */; };
+		B50C48AF141EB556004269C5 /* SBJsonUTF8Stream.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C48A2141EB556004269C5 /* SBJsonUTF8Stream.m */; };
+		B50C48B0141EB556004269C5 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C48A4141EB556004269C5 /* SBJsonWriter.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +44,38 @@
 		B50C486D141EA02F004269C5 /* BootCamp_iOSAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BootCamp_iOSAppDelegate.h; sourceTree = "<group>"; };
 		B50C486E141EA02F004269C5 /* BootCamp_iOSAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BootCamp_iOSAppDelegate.m; sourceTree = "<group>"; };
 		B50C4871141EA02F004269C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainWindow.xib; sourceTree = "<group>"; };
+		B50C4878141EA474004269C5 /* TwitterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterViewController.h; sourceTree = "<group>"; };
+		B50C4879141EA474004269C5 /* TwitterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterViewController.m; sourceTree = "<group>"; };
+		B50C487A141EA474004269C5 /* TwitterViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwitterViewController.xib; sourceTree = "<group>"; };
+		B50C487D141EACCE004269C5 /* TweetDisplayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetDisplayViewController.h; sourceTree = "<group>"; };
+		B50C487E141EACCE004269C5 /* TweetDisplayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetDisplayViewController.m; sourceTree = "<group>"; };
+		B50C487F141EACCE004269C5 /* TweetDisplayViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetDisplayViewController.xib; sourceTree = "<group>"; };
+		B50C488B141EB556004269C5 /* JSON.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSON.h; sourceTree = "<group>"; };
+		B50C488C141EB556004269C5 /* NSObject+SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+SBJson.h"; sourceTree = "<group>"; };
+		B50C488D141EB556004269C5 /* NSObject+SBJson.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+SBJson.m"; sourceTree = "<group>"; };
+		B50C488E141EB556004269C5 /* SBJson.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJson.h; sourceTree = "<group>"; };
+		B50C488F141EB556004269C5 /* SBJsonParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonParser.h; sourceTree = "<group>"; };
+		B50C4890141EB556004269C5 /* SBJsonParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonParser.m; sourceTree = "<group>"; };
+		B50C4891141EB556004269C5 /* SBJsonStreamParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParser.h; sourceTree = "<group>"; };
+		B50C4892141EB556004269C5 /* SBJsonStreamParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParser.m; sourceTree = "<group>"; };
+		B50C4893141EB556004269C5 /* SBJsonStreamParserAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAccumulator.h; sourceTree = "<group>"; };
+		B50C4894141EB556004269C5 /* SBJsonStreamParserAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAccumulator.m; sourceTree = "<group>"; };
+		B50C4895141EB556004269C5 /* SBJsonStreamParserAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserAdapter.h; sourceTree = "<group>"; };
+		B50C4896141EB556004269C5 /* SBJsonStreamParserAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserAdapter.m; sourceTree = "<group>"; };
+		B50C4897141EB556004269C5 /* SBJsonStreamParserState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamParserState.h; sourceTree = "<group>"; };
+		B50C4898141EB556004269C5 /* SBJsonStreamParserState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamParserState.m; sourceTree = "<group>"; };
+		B50C4899141EB556004269C5 /* SBJsonStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriter.h; sourceTree = "<group>"; };
+		B50C489A141EB556004269C5 /* SBJsonStreamWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriter.m; sourceTree = "<group>"; };
+		B50C489B141EB556004269C5 /* SBJsonStreamWriterAccumulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterAccumulator.h; sourceTree = "<group>"; };
+		B50C489C141EB556004269C5 /* SBJsonStreamWriterAccumulator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterAccumulator.m; sourceTree = "<group>"; };
+		B50C489D141EB556004269C5 /* SBJsonStreamWriterState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonStreamWriterState.h; sourceTree = "<group>"; };
+		B50C489E141EB556004269C5 /* SBJsonStreamWriterState.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonStreamWriterState.m; sourceTree = "<group>"; };
+		B50C489F141EB556004269C5 /* SBJsonTokeniser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonTokeniser.h; sourceTree = "<group>"; };
+		B50C48A0141EB556004269C5 /* SBJsonTokeniser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonTokeniser.m; sourceTree = "<group>"; };
+		B50C48A1141EB556004269C5 /* SBJsonUTF8Stream.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonUTF8Stream.h; sourceTree = "<group>"; };
+		B50C48A2141EB556004269C5 /* SBJsonUTF8Stream.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonUTF8Stream.m; sourceTree = "<group>"; };
+		B50C48A3141EB556004269C5 /* SBJsonWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SBJsonWriter.h; sourceTree = "<group>"; };
+		B50C48A4141EB556004269C5 /* SBJsonWriter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SBJsonWriter.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +122,16 @@
 		B50C4864141EA02F004269C5 /* BootCamp-iOS */ = {
 			isa = PBXGroup;
 			children = (
+				B50C488A141EB556004269C5 /* JSON */,
 				B50C486D141EA02F004269C5 /* BootCamp_iOSAppDelegate.h */,
 				B50C486E141EA02F004269C5 /* BootCamp_iOSAppDelegate.m */,
 				B50C4870141EA02F004269C5 /* MainWindow.xib */,
+				B50C4878141EA474004269C5 /* TwitterViewController.h */,
+				B50C4879141EA474004269C5 /* TwitterViewController.m */,
+				B50C487A141EA474004269C5 /* TwitterViewController.xib */,
+				B50C487D141EACCE004269C5 /* TweetDisplayViewController.h */,
+				B50C487E141EACCE004269C5 /* TweetDisplayViewController.m */,
+				B50C487F141EACCE004269C5 /* TweetDisplayViewController.xib */,
 				B50C4865141EA02F004269C5 /* Supporting Files */,
 			);
 			path = "BootCamp-iOS";
@@ -91,6 +146,39 @@
 				B50C486B141EA02F004269C5 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		B50C488A141EB556004269C5 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				B50C488B141EB556004269C5 /* JSON.h */,
+				B50C488C141EB556004269C5 /* NSObject+SBJson.h */,
+				B50C488D141EB556004269C5 /* NSObject+SBJson.m */,
+				B50C488E141EB556004269C5 /* SBJson.h */,
+				B50C488F141EB556004269C5 /* SBJsonParser.h */,
+				B50C4890141EB556004269C5 /* SBJsonParser.m */,
+				B50C4891141EB556004269C5 /* SBJsonStreamParser.h */,
+				B50C4892141EB556004269C5 /* SBJsonStreamParser.m */,
+				B50C4893141EB556004269C5 /* SBJsonStreamParserAccumulator.h */,
+				B50C4894141EB556004269C5 /* SBJsonStreamParserAccumulator.m */,
+				B50C4895141EB556004269C5 /* SBJsonStreamParserAdapter.h */,
+				B50C4896141EB556004269C5 /* SBJsonStreamParserAdapter.m */,
+				B50C4897141EB556004269C5 /* SBJsonStreamParserState.h */,
+				B50C4898141EB556004269C5 /* SBJsonStreamParserState.m */,
+				B50C4899141EB556004269C5 /* SBJsonStreamWriter.h */,
+				B50C489A141EB556004269C5 /* SBJsonStreamWriter.m */,
+				B50C489B141EB556004269C5 /* SBJsonStreamWriterAccumulator.h */,
+				B50C489C141EB556004269C5 /* SBJsonStreamWriterAccumulator.m */,
+				B50C489D141EB556004269C5 /* SBJsonStreamWriterState.h */,
+				B50C489E141EB556004269C5 /* SBJsonStreamWriterState.m */,
+				B50C489F141EB556004269C5 /* SBJsonTokeniser.h */,
+				B50C48A0141EB556004269C5 /* SBJsonTokeniser.m */,
+				B50C48A1141EB556004269C5 /* SBJsonUTF8Stream.h */,
+				B50C48A2141EB556004269C5 /* SBJsonUTF8Stream.m */,
+				B50C48A3141EB556004269C5 /* SBJsonWriter.h */,
+				B50C48A4141EB556004269C5 /* SBJsonWriter.m */,
+			);
+			path = JSON;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -142,6 +230,8 @@
 			files = (
 				B50C4869141EA02F004269C5 /* InfoPlist.strings in Resources */,
 				B50C4872141EA02F004269C5 /* MainWindow.xib in Resources */,
+				B50C487C141EA474004269C5 /* TwitterViewController.xib in Resources */,
+				B50C4881141EACCE004269C5 /* TweetDisplayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -154,6 +244,20 @@
 			files = (
 				B50C486C141EA02F004269C5 /* main.m in Sources */,
 				B50C486F141EA02F004269C5 /* BootCamp_iOSAppDelegate.m in Sources */,
+				B50C487B141EA474004269C5 /* TwitterViewController.m in Sources */,
+				B50C4880141EACCE004269C5 /* TweetDisplayViewController.m in Sources */,
+				B50C48A5141EB556004269C5 /* NSObject+SBJson.m in Sources */,
+				B50C48A6141EB556004269C5 /* SBJsonParser.m in Sources */,
+				B50C48A7141EB556004269C5 /* SBJsonStreamParser.m in Sources */,
+				B50C48A8141EB556004269C5 /* SBJsonStreamParserAccumulator.m in Sources */,
+				B50C48A9141EB556004269C5 /* SBJsonStreamParserAdapter.m in Sources */,
+				B50C48AA141EB556004269C5 /* SBJsonStreamParserState.m in Sources */,
+				B50C48AB141EB556004269C5 /* SBJsonStreamWriter.m in Sources */,
+				B50C48AC141EB556004269C5 /* SBJsonStreamWriterAccumulator.m in Sources */,
+				B50C48AD141EB556004269C5 /* SBJsonStreamWriterState.m in Sources */,
+				B50C48AE141EB556004269C5 /* SBJsonTokeniser.m in Sources */,
+				B50C48AF141EB556004269C5 /* SBJsonUTF8Stream.m in Sources */,
+				B50C48B0141EB556004269C5 /* SBJsonWriter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -220,7 +324,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BootCamp-iOS/BootCamp-iOS-Prefix.pch";
 				INFOPLIST_FILE = "BootCamp-iOS/BootCamp-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -233,7 +339,9 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BootCamp-iOS/BootCamp-iOS-Prefix.pch";
 				INFOPLIST_FILE = "BootCamp-iOS/BootCamp-iOS-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALIDATE_PRODUCT = YES;
 				WRAPPER_EXTENSION = app;
 			};
