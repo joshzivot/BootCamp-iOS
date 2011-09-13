@@ -9,8 +9,13 @@
 #import <UIKit/UIKit.h>
 
 
-@interface TweetDisplayViewController : UIViewController {
+@interface TweetDisplayViewController : UITableViewController {
     
 }
+
+@property (nonatomic, copy) NSString *query;
+@property (nonatomic, retain) NSURLConnection *connection;
+@property (nonatomic, retain) NSMutableData *buffer;
+@property (nonatomic, retain) NSMutableArray *results;
 
 @end

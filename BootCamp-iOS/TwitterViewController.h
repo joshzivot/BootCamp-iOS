@@ -8,17 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
-@class TweetDisplayViewController;
-
 @interface TwitterViewController : UIViewController <UITextFieldDelegate> {
     
     UITextField *searchTextField;
     UIButton *displayTweetsButton;
 }
 
-@property (nonatomic, retain) IBOutlet UITextField *searchTextField;
 - (IBAction)displayTweetsButton:(id)sender;
-
-@property (nonatomic, retain) TweetDisplayViewController *tweetDisplayViewController;
 
 @end

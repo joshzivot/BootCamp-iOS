@@ -8,13 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@class TwitterViewController;
-
 @interface BootCamp_iOSAppDelegate : NSObject <UIApplicationDelegate> {
 
 }
 
 @property (nonatomic, retain) IBOutlet UIWindow *window;
-@property (nonatomic, retain) TwitterViewController *twitterViewController;
+@property (nonatomic, retain) IBOutlet UINavigationController *navigationController;
 
 @end

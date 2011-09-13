@@ -123,9 +123,9 @@
 			isa = PBXGroup;
 			children = (
 				B50C488A141EB556004269C5 /* JSON */,
+				B50C4870141EA02F004269C5 /* MainWindow.xib */,
 				B50C486D141EA02F004269C5 /* BootCamp_iOSAppDelegate.h */,
 				B50C486E141EA02F004269C5 /* BootCamp_iOSAppDelegate.m */,
-				B50C4870141EA02F004269C5 /* MainWindow.xib */,
 				B50C4878141EA474004269C5 /* TwitterViewController.h */,
 				B50C4879141EA474004269C5 /* TwitterViewController.m */,
 				B50C487A141EA474004269C5 /* TwitterViewController.xib */,
@@ -366,6 +366,7 @@
 				B50C4877141EA02F004269C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

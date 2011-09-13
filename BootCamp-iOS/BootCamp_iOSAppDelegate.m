@@ -12,19 +12,18 @@
 @implementation BootCamp_iOSAppDelegate
 
 
-@synthesize window=_window;
-@synthesize twitterViewController = _twitterViewController;
-
+@synthesize window = _window;
+@synthesize navigationController = _navigationController;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    TwitterViewController *viewController = [[TwitterViewController alloc]
-                                         initWithNibName:@"TwitterViewController" bundle:nil];
-    self.twitterViewController = viewController;
-    [viewController release];
-    
-    self.window.rootViewController = self.twitterViewController;
+    self.window.rootViewController = self.navigationController;
 
+   /* TwitterViewController *viewController = [[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
+    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+    [_navigationController pushViewController:viewController animated:YES];
+    [viewController release];*/
+    
     [self.window makeKeyAndVisible];
     return YES;
 }
@@ -69,8 +68,8 @@
 }
 
 - (void)dealloc {
-    [_twitterViewController release];
     [_window release];
+    [_navigationController release];
     [super dealloc];
 }
 

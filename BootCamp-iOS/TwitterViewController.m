@@ -10,9 +10,6 @@
 #import "TweetDisplayViewController.h"
 
 @implementation TwitterViewController
-@synthesize searchTextField;
-
-@synthesize tweetDisplayViewController = _tweetDisplayViewController;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -48,7 +45,6 @@
 
 - (void)viewDidUnload
 {
-    [self setSearchTextField:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -60,14 +56,22 @@
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField == self.searchTextField) {
-        [textField resignFirstResponder];
-    }
-    return YES;
-}
 - (IBAction)displayTweetsButton:(id)sender {
-    [[self navigationController] pushViewController:_tweetDisplayViewController animated:YES];
-    
+    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
+    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+    [[self navigationController] pushViewController:viewController animated:YES];
+    [viewController release];
+
+}
+
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField.text) {
+        TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
+        //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+        [[self navigationController] pushViewController:viewController animated:YES];
+        [viewController release];
+    }
+	[textField resignFirstResponder];
+	return YES;
 }
 @end
