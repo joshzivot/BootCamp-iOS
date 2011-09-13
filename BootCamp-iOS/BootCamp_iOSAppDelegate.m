@@ -19,10 +19,10 @@
     
     self.window.rootViewController = self.navigationController;
 
-   /* TwitterViewController *viewController = [[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
-    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
-    [_navigationController pushViewController:viewController animated:YES];
-    [viewController release];*/
+//    TwitterViewController *viewController = [[TwitterViewController alloc] initWithNibName:@"TwitterViewController" bundle:nil];
+//    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+//    [_navigationController pushViewController:viewController animated:YES];
+//    [viewController release];
     
     [self.window makeKeyAndVisible];
     return YES;

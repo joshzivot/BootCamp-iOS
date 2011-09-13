@@ -10,6 +10,8 @@
 #import "TweetDisplayViewController.h"
 
 @implementation TwitterViewController
+@synthesize searchTextField = _searchTextField;
+
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,8 +24,7 @@
 
 - (void)dealloc
 {
-    [searchTextField release];
-    [displayTweetsButton release];
+    [_searchTextField release];
     [super dealloc];
 }
 
@@ -50,28 +51,32 @@
     // e.g. self.myOutlet = nil;
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
 }
 
-- (IBAction)displayTweetsButton:(id)sender {
-    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
-    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
-    [[self navigationController] pushViewController:viewController animated:YES];
-    [viewController release];
-
-}
-
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
-    if (textField.text) {
-        TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
-        //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
-        [[self navigationController] pushViewController:viewController animated:YES];
-        [viewController release];
+    if (textField == self.searchTextField) {
+        
+        //    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
+        //    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+        //    [[self navigationController] pushViewController:viewController animated:YES];
+        //    [viewController release];
+        
+        [textField resignFirstResponder];
     }
-	[textField resignFirstResponder];
-	return YES;
+    return YES;
 }
+
+- (IBAction)displayTweetsButton:(id)sender {
+    NSLog(@"edgrerhte");
+    //    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
+    //    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+    //    [[self navigationController] pushViewController:viewController animated:YES];
+    //    [viewController release];
+}
+
 @end

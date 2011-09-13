@@ -9,11 +9,11 @@
 #import <UIKit/UIKit.h>
 
 @interface TwitterViewController : UIViewController <UITextFieldDelegate> {
-    
-    UITextField *searchTextField;
-    UIButton *displayTweetsButton;
+
 }
 
-- (IBAction)displayTweetsButton:(id)sender;
+- (IBAction) displayTweetsButton:(id)sender;
+
+@property (nonatomic, retain) IBOutlet UITextField *searchTextField;
 
 @end
