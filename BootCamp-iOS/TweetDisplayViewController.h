@@ -11,6 +11,8 @@
 
 @interface TweetDisplayViewController : UITableViewController {
     
+    UIImageView *_userProfileImage;
+    UITableViewCell *_tweetTableCell;
 }
 
 @property (nonatomic, copy) NSString *query;

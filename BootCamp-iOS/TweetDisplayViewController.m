@@ -1,4 +1,5 @@
 #import "TweetDisplayViewController.h"
+#import "TweetCell.h"
 #import "SBJSON.h"
 
 @interface TweetDisplayViewController ()
@@ -12,10 +13,6 @@
 @synthesize connection=_connection;
 @synthesize buffer=_buffer;
 @synthesize results=_results;
-
-#pragma mark -
-#pragma mark === View Setup ===
-#pragma mark -
 
 - (void)viewDidLoad
 {
@@ -50,10 +47,6 @@
     return YES;
 }
 
-#pragma mark -
-#pragma mark === UITableViewDataSource Delegates ===
-#pragma mark -
-
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return 1;
@@ -67,7 +60,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *ResultCellIdentifier = @"ResultCell";
+    static NSString *ResultCellIdentifier = @"TweetCellID";
     static NSString *LoadCellIdentifier = @"LoadingCell";
     
     NSUInteger count = [self.results count];
@@ -87,11 +80,11 @@
         return cell;
     }
     
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ResultCellIdentifier];
+    TweetCell *cell = (TweetCell*)[tableView dequeueReusableCellWithIdentifier:ResultCellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
-                                       reuseIdentifier:ResultCellIdentifier] autorelease];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        NSLog(@"CustomCEll");
+        NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
+        cell = [topLevelObjects objectAtIndex:0];
         cell.textLabel.numberOfLines = 0;
         cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     }
@@ -99,6 +92,11 @@
     NSDictionary *tweet = [self.results objectAtIndex:indexPath.row];
     cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", [tweet objectForKey:@"from_user"],
                            [tweet objectForKey:@"text"]];
+    
+    UIImage *profileImageFromURL = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[tweet objectForKey:@"profile_image_url"]]]];
+    
+    [cell.userProfileImage setImage:profileImageFromURL];
+    
     return cell;
 }
 
@@ -111,9 +109,6 @@
     }
 }
 
-#pragma mark -
-#pragma mark === Private methods ===
-#pragma mark -
 
 #define RESULTS_PERPAGE 100
 

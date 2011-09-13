@@ -72,11 +72,10 @@
 }
 
 - (IBAction)displayTweetsButton:(id)sender {
-    NSLog(@"edgrerhte");
-    //    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
-    //    //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
-    //    [[self navigationController] pushViewController:viewController animated:YES];
-    //    [viewController release];
+        TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
+        //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+        [[self navigationController] pushViewController:viewController animated:YES];
+        [viewController release];
 }
 
 @end
