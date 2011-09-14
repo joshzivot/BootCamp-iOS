@@ -73,7 +73,7 @@
 
 - (IBAction)displayTweetsButton:(id)sender {
         TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
-        //viewController.query = [NSString stringWithFormat:@"%@", textField.text];
+        viewController.query = [NSString stringWithFormat:@"%@", self.searchTextField.text];
         [[self navigationController] pushViewController:viewController animated:YES];
         [viewController release];
 }

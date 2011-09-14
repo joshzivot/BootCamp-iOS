@@ -32,6 +32,8 @@
 		B50C48B0141EB556004269C5 /* SBJsonWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C48A4141EB556004269C5 /* SBJsonWriter.m */; };
 		B50C48D9141FFF54004269C5 /* TweetCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C48D7141FFF54004269C5 /* TweetCell.m */; };
 		B50C48DA141FFF54004269C5 /* TweetCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50C48D8141FFF54004269C5 /* TweetCell.xib */; };
+		B50C48E61420F088004269C5 /* TweetFullViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C48E41420F088004269C5 /* TweetFullViewController.m */; };
+		B50C48E71420F088004269C5 /* TweetFullViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B50C48E51420F088004269C5 /* TweetFullViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +83,9 @@
 		B50C48D6141FFF53004269C5 /* TweetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetCell.h; sourceTree = "<group>"; };
 		B50C48D7141FFF54004269C5 /* TweetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetCell.m; sourceTree = "<group>"; };
 		B50C48D8141FFF54004269C5 /* TweetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetCell.xib; sourceTree = "<group>"; };
+		B50C48E31420F088004269C5 /* TweetFullViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TweetFullViewController.h; sourceTree = "<group>"; };
+		B50C48E41420F088004269C5 /* TweetFullViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TweetFullViewController.m; sourceTree = "<group>"; };
+		B50C48E51420F088004269C5 /* TweetFullViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TweetFullViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +145,9 @@
 				B50C48D6141FFF53004269C5 /* TweetCell.h */,
 				B50C48D7141FFF54004269C5 /* TweetCell.m */,
 				B50C48D8141FFF54004269C5 /* TweetCell.xib */,
+				B50C48E31420F088004269C5 /* TweetFullViewController.h */,
+				B50C48E41420F088004269C5 /* TweetFullViewController.m */,
+				B50C48E51420F088004269C5 /* TweetFullViewController.xib */,
 				B50C4865141EA02F004269C5 /* Supporting Files */,
 			);
 			path = "BootCamp-iOS";
@@ -241,6 +249,7 @@
 				B50C487C141EA474004269C5 /* TwitterViewController.xib in Resources */,
 				B50C4881141EACCE004269C5 /* TweetDisplayViewController.xib in Resources */,
 				B50C48DA141FFF54004269C5 /* TweetCell.xib in Resources */,
+				B50C48E71420F088004269C5 /* TweetFullViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -268,6 +277,7 @@
 				B50C48AF141EB556004269C5 /* SBJsonUTF8Stream.m in Sources */,
 				B50C48B0141EB556004269C5 /* SBJsonWriter.m in Sources */,
 				B50C48D9141FFF54004269C5 /* TweetCell.m in Sources */,
+				B50C48E61420F088004269C5 /* TweetFullViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

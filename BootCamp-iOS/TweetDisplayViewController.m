@@ -1,4 +1,5 @@
 #import "TweetDisplayViewController.h"
+#import "TweetFullViewController.h"
 #import "TweetCell.h"
 #import "SBJSON.h"
 
@@ -9,10 +10,10 @@
 
 @implementation TweetDisplayViewController
 
-@synthesize query=_query;
-@synthesize connection=_connection;
-@synthesize buffer=_buffer;
-@synthesize results=_results;
+@synthesize query = _query;
+@synthesize connection = _connection;
+@synthesize buffer = _buffer;
+@synthesize results = _results;
 
 - (void)viewDidLoad
 {
@@ -82,11 +83,12 @@
     
     TweetCell *cell = (TweetCell*)[tableView dequeueReusableCellWithIdentifier:ResultCellIdentifier];
     if (cell == nil) {
-        NSLog(@"CustomCEll");
+        NSLog(@"CustomCell");
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
-        cell.textLabel.numberOfLines = 0;
-        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+        
+//        cell.textLabel.numberOfLines = 3;
+//        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     }
     
     NSDictionary *tweet = [self.results objectAtIndex:indexPath.row];
@@ -95,27 +97,32 @@
     
     UIImage *profileImageFromURL = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[tweet objectForKey:@"profile_image_url"]]]];
     
-    [cell.userProfileImage setImage:profileImageFromURL];
+    cell.imageView.image = profileImageFromURL;
+    
+//    cell.userProfileImage = [[UIImageView alloc] initWithImage:profileImageFromURL];
+//    cell.accessoryView = cell.userProfileImage;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
-    if (indexPath.row & 1) {
-        cell.backgroundColor = [UIColor colorWithWhite:0.9 alpha:1.0];
+    if (indexPath.row % 2 == 0) {
+        cell.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
     } else {
         cell.backgroundColor = [UIColor whiteColor];
     }
 }
 
-
-#define RESULTS_PERPAGE 100
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+    TweetFullViewController *viewController = [[TweetFullViewController alloc] initWithNibName:@"TweetFullViewController" bundle:nil];
+    [[self navigationController] pushViewController:viewController animated:YES];
+}
 
 - (void)loadQuery {
     
-    NSString *path = [NSString stringWithFormat:@"http://search.twitter.com/search.json?rpp=%d&q=%@",
-                      RESULTS_PERPAGE,self.query];
+    NSString *path = [NSString stringWithFormat:@"http://search.twitter.com/search.json?q=%@",
+                                                self.query];
     path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURLRequest *request = [NSURLRequest requestWithURL:[NSURL URLWithString:path]];
     self.connection = [[[NSURLConnection alloc] initWithRequest:request delegate:self] autorelease];    

@@ -15,8 +15,4 @@
     UIImageView *userProfileImage;
 }
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil;
-
-@property (nonatomic, retain) IBOutlet UIImageView *userProfileImage;
-
 @end
