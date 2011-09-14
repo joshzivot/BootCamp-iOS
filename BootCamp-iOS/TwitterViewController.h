@@ -13,6 +13,7 @@
 }
 
 - (IBAction) displayTweetsButton:(id)sender;
+- (void) displayTweets;
 
 @property (nonatomic, retain) IBOutlet UITextField *searchTextField;
 

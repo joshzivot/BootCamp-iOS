@@ -67,16 +67,13 @@
 					<int key="NSColorSpace">1</int>
 					<bytes key="NSRGB">MSAxIDEAA</bytes>
 				</object>
+				<bool key="IBUIAutoresizesSubviews">NO</bool>
 				<object class="IBUIAccessibilityConfiguration" key="IBUIAccessibilityConfiguration">
 					<integer value="4" key="IBUIAccessibilityTraits"/>
 				</object>
 				<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 				<int key="IBUISeparatorStyle">1</int>
 				<reference key="IBUIContentView" ref="1062563922"/>
-				<object class="NSColor" key="IBUITextColor">
-					<int key="NSColorSpace">1</int>
-					<bytes key="NSRGB">MC42ODM2NzM0Njk0IDAuMDY4MDA2NDY4MTUgMC4xNzI0MTg1NzIzAA</bytes>
-				</object>
 				<string key="IBUIReuseIdentifier">TweetCellID</string>
 			</object>
 		</object>

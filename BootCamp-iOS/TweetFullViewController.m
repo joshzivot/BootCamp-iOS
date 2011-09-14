@@ -1,15 +1,12 @@
-//
-//  TweetFullView.m
-//  BootCamp-iOS
-//
-//  Created by DX061 on 11-09-14.
-//  Copyright 2011 __MyCompanyName__. All rights reserved.
-//
-
 #import "TweetFullViewController.h"
-
+#import "SBJSON.h"
 
 @implementation TweetFullViewController
+
+@synthesize userNameLabel = _userNameLabel;
+@synthesize tweetLabel = _tweetLabel;
+@synthesize timeLabel = _timeLabel;
+@synthesize profileImage = _profileImage;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -22,6 +19,10 @@
 
 - (void)dealloc
 {
+    [_userNameLabel release];
+    [_tweetLabel release];
+    [_timeLabel release];
+    [_profileImage release];
     [super dealloc];
 }
 
@@ -43,6 +44,10 @@
 
 - (void)viewDidUnload
 {
+    [self setUserNameLabel:nil];
+    [self setTweetLabel:nil];
+    [self setTimeLabel:nil];
+    [self setProfileImage:nil];
     [super viewDidUnload];
     // Release any retained subviews of the main view.
     // e.g. self.myOutlet = nil;
@@ -52,6 +57,19 @@
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+- (void) displayTweetInfo: (NSDictionary*) tweet {
+    
+    // Set profile image
+    UIImage *profileImageFromURL = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[tweet objectForKey:@"profile_image_url"]]]];
+    
+    self.profileImage.image = profileImageFromURL;
+    
+    // Set user, tweet, and time
+    self.userNameLabel.text = [tweet objectForKey:@"from_user"];
+    self.tweetLabel.text = [tweet objectForKey:@"text"];
+    self.timeLabel.text = [tweet objectForKey:@"created_at"];
 }
 
 @end

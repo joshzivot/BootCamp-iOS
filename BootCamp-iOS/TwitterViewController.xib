@@ -49,7 +49,7 @@
 						<object class="IBUITextField" id="336126373">
 							<reference key="NSNextResponder" ref="191373211"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{55, 49}, {222, 31}}</string>
+							<string key="NSFrame">{{20, 49}, {280, 31}}</string>
 							<reference key="NSSuperview" ref="191373211"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="504897920"/>
@@ -77,14 +77,14 @@
 							<float key="IBUIMinimumFontSize">17</float>
 							<object class="IBUITextInputTraits" key="IBUITextInputTraits">
 								<int key="IBUIKeyboardType">7</int>
-								<int key="IBUIReturnKeyType">9</int>
+								<int key="IBUIReturnKeyType">6</int>
 								<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
 							</object>
 						</object>
 						<object class="IBUIButton" id="504897920">
 							<reference key="NSNextResponder" ref="191373211"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{100, 103}, {133, 37}}</string>
+							<string key="NSFrame">{{94, 97}, {133, 37}}</string>
 							<reference key="NSSuperview" ref="191373211"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView"/>
@@ -115,7 +115,7 @@
 						<object class="IBUILabel" id="756271740">
 							<reference key="NSNextResponder" ref="191373211"/>
 							<int key="NSvFlags">292</int>
-							<string key="NSFrame">{{109, 20}, {114, 21}}</string>
+							<string key="NSFrame">{{20, 20}, {114, 21}}</string>
 							<reference key="NSSuperview" ref="191373211"/>
 							<reference key="NSWindow"/>
 							<reference key="NSNextKeyView" ref="336126373"/>
@@ -124,7 +124,7 @@
 							<int key="IBUIContentMode">7</int>
 							<bool key="IBUIUserInteractionEnabled">NO</bool>
 							<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
-							<string key="IBUIText">Twitter Search:</string>
+							<string key="IBUIText">Search:</string>
 							<object class="NSFont" key="IBUIFont">
 								<string key="NSName">Helvetica</string>
 								<double key="NSSize">17</double>
@@ -139,16 +139,19 @@
 							<float key="IBUIMinimumFontSize">10</float>
 						</object>
 					</object>
-					<string key="NSFrame">{{0, 20}, {320, 460}}</string>
+					<string key="NSFrame">{{0, 64}, {320, 416}}</string>
 					<reference key="NSSuperview"/>
 					<reference key="NSWindow"/>
 					<reference key="NSNextKeyView" ref="756271740"/>
 					<object class="NSColor" key="IBUIBackgroundColor">
 						<int key="NSColorSpace">1</int>
-						<bytes key="NSRGB">MC44MjY1NDE2MTkxIDAuOTA4NjIzNTYzOSAxAA</bytes>
+						<bytes key="NSRGB">MC45MDE0NTk4NTQgMC45ODE3NTE4MjQ4IDEAA</bytes>
 					</object>
 					<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 					<string key="targetRuntimeIdentifier">IBCocoaTouchFramework</string>
+				</object>
+				<object class="IBUISimulatedNavigationBarMetrics" key="IBUISimulatedTopBarMetrics">
+					<bool key="IBUIPrompted">NO</bool>
 				</object>
 				<object class="IBUISimulatedStatusBarMetrics" key="IBUISimulatedStatusBarMetrics"/>
 				<object class="IBUISimulatedOrientationMetrics" key="IBUISimulatedOrientationMetrics">

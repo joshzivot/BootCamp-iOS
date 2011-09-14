@@ -13,4 +13,11 @@
     
 }
 
+@property (nonatomic, retain) IBOutlet UILabel *userNameLabel;
+@property (nonatomic, retain) IBOutlet UILabel *tweetLabel;
+@property (nonatomic, retain) IBOutlet UILabel *timeLabel;
+@property (nonatomic, retain) IBOutlet UIImageView *profileImage;
+
+- (void) displayTweetInfo: (NSDictionary*) tweet;
+
 @end

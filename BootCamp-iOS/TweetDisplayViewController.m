@@ -108,15 +108,23 @@
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
     if (indexPath.row % 2 == 0) {
-        cell.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
-    } else {
         cell.backgroundColor = [UIColor whiteColor];
+    } else {
+        cell.backgroundColor = [UIColor colorWithWhite:0.95 alpha:1.0];
     }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
+    
     TweetFullViewController *viewController = [[TweetFullViewController alloc] initWithNibName:@"TweetFullViewController" bundle:nil];
+    
+    NSDictionary *tweet = [self.results objectAtIndex:indexPath.row];
+    
     [[self navigationController] pushViewController:viewController animated:YES];
+    
+    [viewController displayTweetInfo:tweet];
+    
+    [viewController release];
 }
 
 - (void)loadQuery {
