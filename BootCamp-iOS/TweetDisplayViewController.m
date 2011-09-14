@@ -14,17 +14,24 @@
 @synthesize connection = _connection;
 @synthesize buffer = _buffer;
 @synthesize results = _results;
+@synthesize loadingView = _loadingView;
+@synthesize loadingSpinner = _loadingSpinner;
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
     
     self.title = self.query;
+    
+    self.tableView.rowHeight = 80.f;
+    
     [self loadQuery];
 }
 
 - (void)viewDidUnload
 {
+    [self setLoadingView:nil];
+    [self setLoadingSpinner:nil];
     [super viewDidUnload];
     
     [self.connection cancel];
@@ -41,11 +48,9 @@
     [_buffer release];
     [_results release];
     [_query release];
+    [_loadingView release];
+    [_loadingSpinner release];
     [super dealloc];
-}
-
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    return YES;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -66,29 +71,33 @@
     
     NSUInteger count = [self.results count];
     if ((count == 0) && (indexPath.row == 0)) {
+        
+        
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LoadCellIdentifier];
         if (cell == nil) {
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
                                            reuseIdentifier:LoadCellIdentifier] autorelease];
             cell.textLabel.textAlignment = UITextAlignmentCenter;
+            cell.textLabel.textColor = [UIColor lightGrayColor];
         }
         
         if (self.connection) {
+            // This shouldn't display since loading screen with spinner is
+            // displayed instead
             cell.textLabel.text = @"Loading...";
         } else {
-            cell.textLabel.text = @"Not available";
+            cell.textLabel.text = @"No tweet results";
         }
         return cell;
     }
     
     TweetCell *cell = (TweetCell*)[tableView dequeueReusableCellWithIdentifier:ResultCellIdentifier];
     if (cell == nil) {
-        NSLog(@"CustomCell");
+        
         NSArray *topLevelObjects = [[NSBundle mainBundle] loadNibNamed:@"TweetCell" owner:self options:nil];
         cell = [topLevelObjects objectAtIndex:0];
-        
-//        cell.textLabel.numberOfLines = 3;
-//        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
+        cell.textLabel.numberOfLines = 2;
+        cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     }
     
     NSDictionary *tweet = [self.results objectAtIndex:indexPath.row];
@@ -104,6 +113,11 @@
     
     return cell;
 }
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    return 70.0;
+//}
+
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -128,6 +142,10 @@
 }
 
 - (void)loadQuery {
+    
+    // Display 'Loading' screen
+    [self.view addSubview:self.loadingView];
+    [self.loadingSpinner startAnimating];
     
     NSString *path = [NSString stringWithFormat:@"http://search.twitter.com/search.json?q=%@",
                                                 self.query];
@@ -158,6 +176,10 @@
     
     [jsonString release];
     self.buffer = nil;
+    
+    [self.loadingView removeFromSuperview];
+    [self.loadingSpinner stopAnimating];
+    
     [self.tableView reloadData];
     [self.tableView flashScrollIndicators];
 }

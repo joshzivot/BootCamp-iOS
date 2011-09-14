@@ -61,7 +61,6 @@
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
     if (textField == self.searchTextField) {
         [self displayTweets];
-        [textField resignFirstResponder];
     }
     return YES;
 }
@@ -71,6 +70,7 @@
 }
 
 - (void) displayTweets {
+    [self.searchTextField resignFirstResponder];
     TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
     viewController.query = [NSString stringWithFormat:@"%@", self.searchTextField.text];
     [[self navigationController] pushViewController:viewController animated:YES];

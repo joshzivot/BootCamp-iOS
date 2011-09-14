@@ -20,4 +20,7 @@
 @property (nonatomic, retain) NSMutableData *buffer;
 @property (nonatomic, retain) NSMutableArray *results;
 
+@property (nonatomic, retain) IBOutlet UIView *loadingView;
+@property (nonatomic, retain) IBOutlet UIActivityIndicatorView *loadingSpinner;
+
 @end
