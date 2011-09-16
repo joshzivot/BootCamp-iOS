@@ -59,6 +59,10 @@
 }
 
 - (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    
+    // If search text field is dismissed (i.e. the user clicks 'search'), 
+    // call displayTweets to push results view onto navigation controller
+    
     if (textField == self.searchTextField) {
         [self displayTweets];
     }
@@ -66,15 +70,31 @@
 }
 
 - (IBAction)displayTweetsButton:(id)sender {
+    
+    // Button click for display tweets button also calls displayTweets
+    // Functionality mirrors that of clicking 'search' on keyboard
+    
     [self displayTweets];
 }
 
 - (void) displayTweets {
+    
+    // Dismiss keyboard
     [self.searchTextField resignFirstResponder];
-    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] initWithNibName:@"TweetDisplayViewController" bundle:nil];
-    viewController.query = [NSString stringWithFormat:@"%@", self.searchTextField.text];
+    
+    // Create new view controller for tweet display page
+    TweetDisplayViewController *viewController = [[TweetDisplayViewController alloc] 
+                    initWithNibName:@"TweetDisplayViewController" bundle:nil];
+    
+    // Set query property of new view to text field's contents
+    viewController.query = self.searchTextField.text;
+    
+    // Push new view controller onto navigation controller
     [[self navigationController] pushViewController:viewController animated:YES];
+    
+    // Free temp variable memory
     [viewController release];
+    
 }
 
 @end

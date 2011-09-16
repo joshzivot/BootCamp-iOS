@@ -21,10 +21,13 @@
 {
     [super viewDidLoad];
     
+    // Set view's title to query
     self.title = self.query;
     
+    // Set height of every cell to 80px
     self.tableView.rowHeight = 80.f;
     
+    // Call loadQuery to display loading screen and get tweets from Twitter API
     [self loadQuery];
 }
 
@@ -55,39 +58,44 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
+    // Only one section in this table view
     return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     NSUInteger count = [self.results count];
+    
+    // Return count if greater than 0, else return one
     return count > 0 ? count : 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     static NSString *ResultCellIdentifier = @"TweetCellID";
     static NSString *LoadCellIdentifier = @"LoadingCell";
     
     NSUInteger count = [self.results count];
+    
+    // If number of results is zero, first cell displays "No tweet results"
     if ((count == 0) && (indexPath.row == 0)) {
-        
         
         UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:LoadCellIdentifier];
         if (cell == nil) {
+            
+            // Set cell properties
             cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault 
                                            reuseIdentifier:LoadCellIdentifier] autorelease];
             cell.textLabel.textAlignment = UITextAlignmentCenter;
             cell.textLabel.textColor = [UIColor lightGrayColor];
         }
         
-        if (self.connection) {
-            // This shouldn't display since loading screen with spinner is
-            // displayed instead
-            cell.textLabel.text = @"Loading...";
-        } else {
-            cell.textLabel.text = @"No tweet results";
-        }
+        // Displays No tweet results, since number of results is zero
+        // Results will also be zero while loading, but tableView is hidden by
+        // 'Loading' screen.
+        cell.textLabel.text = @"No tweet results";
+        
         return cell;
     }
     
@@ -100,27 +108,27 @@
         cell.textLabel.font = [UIFont systemFontOfSize:14.0];
     }
     
+    // Create tweet from results at index of this cell
     NSDictionary *tweet = [self.results objectAtIndex:indexPath.row];
+    
+    // Set text to username with a colon followed by tweet text
     cell.textLabel.text = [NSString stringWithFormat:@"%@: %@", [tweet objectForKey:@"from_user"],
                            [tweet objectForKey:@"text"]];
     
-    UIImage *profileImageFromURL = [[UIImage alloc] initWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[tweet objectForKey:@"profile_image_url"]]]];
+    // Get user's profile image from URL in JSON
+    UIImage *profileImageFromURL = [[UIImage alloc] 
+                    initWithData:[NSData dataWithContentsOfURL:
+            [NSURL URLWithString:[tweet objectForKey:@"profile_image_url"]]]];
     
+    // Set cell's image to user profile image
     cell.imageView.image = profileImageFromURL;
-    
-//    cell.userProfileImage = [[UIImageView alloc] initWithImage:profileImageFromURL];
-//    cell.accessoryView = cell.userProfileImage;
     
     return cell;
 }
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    return 70.0;
-//}
-
-
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath {
     
+    // Color cell backgrounds white and grey alternately
     if (indexPath.row % 2 == 0) {
         cell.backgroundColor = [UIColor whiteColor];
     } else {
@@ -128,14 +136,20 @@
     }
 }
 
+/* This method is called when a cell is clicked by the user
+   indexPath.row indicates index of the cell that was clicked */
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath: (NSIndexPath *)indexPath {
     
+    // Setup new view controller for full view of single tweet
     TweetFullViewController *viewController = [[TweetFullViewController alloc] initWithNibName:@"TweetFullViewController" bundle:nil];
     
+    // Get tweet data for the cell that was clicked
     NSDictionary *tweet = [self.results objectAtIndex:indexPath.row];
     
+    // Push onto navigation controller
     [[self navigationController] pushViewController:viewController animated:YES];
     
+    // Pass tweet to view controller so it can populate its fields
     [viewController displayTweetInfo:tweet];
     
     [viewController release];
@@ -147,6 +161,7 @@
     [self.view addSubview:self.loadingView];
     [self.loadingSpinner startAnimating];
     
+    // 
     NSString *path = [NSString stringWithFormat:@"http://search.twitter.com/search.json?q=%@",
                                                 self.query];
     path = [path stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
@@ -157,11 +172,13 @@
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     
+    // Set up buffer for data
     self.buffer = [NSMutableData data];
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveData:(NSData *)data {
     
+    // Append received data to buffer
     [self.buffer appendData:data];
 }
 
@@ -170,16 +187,22 @@
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     self.connection = nil;
     
+    // Get JSON as string from buffer
     NSString *jsonString = [[NSString alloc] initWithData:self.buffer encoding:NSUTF8StringEncoding];
+    
+    // Use JSON library to convert to NSDictionary
     NSDictionary *jsonResults = [jsonString JSONValue];
     self.results = [jsonResults objectForKey:@"results"];
     
+    // Release temp string and clear buffer
     [jsonString release];
     self.buffer = nil;
     
+    // Remove loading screen and stop spinner
     [self.loadingView removeFromSuperview];
     [self.loadingSpinner stopAnimating];
     
+    // Reload view to display tweets
     [self.tableView reloadData];
     [self.tableView flashScrollIndicators];
 }
@@ -197,11 +220,14 @@
 - (void)handleError:(NSError *)error
 {
     NSString *errorMessage = [error localizedDescription];
-    UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"Connection Error"                              
-                                                        message:errorMessage
-                                                       delegate:nil
-                                              cancelButtonTitle:@"OK"
-                                              otherButtonTitles:nil];
+    
+    UIAlertView *alertView = [[UIAlertView alloc] 
+                               initWithTitle:@"Error connecting to Twitter"                              
+                                     message:errorMessage
+                                    delegate:nil
+                           cancelButtonTitle:@"OK"
+                           otherButtonTitles:nil];
+    
     [alertView show];
     [alertView release];
 }
